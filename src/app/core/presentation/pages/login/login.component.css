@@ -6,9 +6,22 @@
   align-items: center;
 }
 
+@keyframes moveObj {
+  0% {
+      transform: translateY(10rem) rotateY(-30deg);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0) rotateY(0);
+      opacity: 1;
+  }
+}
+
+
 #img-back {
   height: 60%;
   margin: auto;
+  animation: moveObj 1.7s forwards;
 }
 
 .login {
@@ -17,6 +30,7 @@
   border: 1px solid rgb(34, 33, 33);
   padding: 11rem 1.4rem;
   border-radius: 15px;
+  animation: moveObj 1.7s forwards;
 }
 
 h1 {
