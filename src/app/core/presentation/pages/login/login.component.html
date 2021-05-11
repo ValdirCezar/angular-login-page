@@ -90,15 +90,17 @@
     <form class="form">
       <mat-form-field class="form-field">
         <mat-label>E-mail</mat-label>
-        <input matInput placeholder="Ex. valdir@mail.com" name="login">
+        <input matInput [(ngModel)]="email" [formControl]="emailValid" required placeholder="Ex. valdir@mail.com" name="email">
+        <mat-error *ngIf="emailValid.invalid">{{ errorValidEmail() }}</mat-error>
       </mat-form-field>
 
       <mat-form-field class="form-field">
         <mat-label>Password</mat-label>
-        <input matInput type="password" placeholder="Ex. my password" name="password">
+        <input [formControl]="passwordValid" required matInput type="password" placeholder="Ex. my password" name="password">
+        <mat-error *ngIf="passwordValid.invalid">{{ errorValidPassword() }}</mat-error>
       </mat-form-field>
 
-      <button mat-stroked-button color="primary">Login</button>
+      <button [disabled]="errorValidEmail() || errorValidPassword()" mat-stroked-button  color="primary">Login</button>
     <button mat-stroked-button color="accent">Sign in</button>
     </form>
   </div>
